@@ -81,7 +81,7 @@ void main(void)
     {
         for(uint8_t i = 0; i < AVG_SAMPLES; i++){
             uint16_t number = ADC_GetConversion(channel_AN0); // get raw ADC reading from MCP9701
-            uint16_t temperature_whole = (float)((number << 2) - TEMP_CONST) / (float)SLOPE; // convert reading to celsius
+            float temperature_whole = (float)((number << 2) - TEMP_CONST) / (float)SLOPE; // convert reading to celsius
            
             avgtemp += temperature_whole;
             printf("Temperature: %fC", temperature_whole); // just this printf takes up 3431 bytes haha
